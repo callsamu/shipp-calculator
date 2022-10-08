@@ -1,0 +1,9 @@
+<div>
+  <header><h1>lovecalc</h1></header>
+  <nav>
+    {{ range .Site.Menus.main }}
+    <a href="{{ .URL }}">{{ print .Name | safeHTML }}</a>
+    {{ end }}
+  </nav>
+</div>
+    
