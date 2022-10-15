@@ -1,6 +1,12 @@
 {{ define "main" }}
 
-<div>
+<div class="form-div">
   {{ partial "form.html" . }}
+</div>
+
+<div class="results-div hidden">
+  <h2 class="result"></h2>
+  <button class="return">return</button>
+</div>
 
 {{ end }}
