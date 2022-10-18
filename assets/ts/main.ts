@@ -6,7 +6,7 @@ const form = document.forms["names"];
 const container = document.querySelector(".results");
 const returnBtn = container.querySelector(".return");
 
-form.addEventListener("submit", e => {
+form.addEventListener("submit", (e: Event) => {
   alternateVisibility(form, container);
   const results = submit(form);
   hydrateResults(results, container);
