@@ -1,4 +1,4 @@
-function hashString(s: string, factor: number): number {
+export function hashString(s: string, factor: number): number {
   let sum = 0;
   
   for (let i = 0; i < s.length; i++) {
@@ -10,6 +10,6 @@ function hashString(s: string, factor: number): number {
   return sum;
 }
 
-function hashNumber(n: number, factor: number): number {
-  return Math.floor(factor * (n * 0.357840) % 1);
+export function hashNumber(n: number, factor: number): number {
+  return Math.floor(factor * ((n * 0.357840) % 1));
 }
