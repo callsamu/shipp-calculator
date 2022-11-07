@@ -1,4 +1,8 @@
 {{ $ts := resources.Get "ts/main.ts" }}
-{{ $ts = $ts | js.Build (dict "minify" true) }}
+{{ $ts = $ts 
+             | resources.ExecuteAsTemplate "main.ts" . 
+             | js.Build (dict "minify" true) 
+}}
+
 <script src="{{ $ts.Permalink }}"></script>
 
