@@ -1,0 +1,15 @@
+<template class="results">
+  <div class="result-container">
+    <div class="result-text">
+      <h2> lorem ipsum dolor </h2>
+      <p> lorem ipsum dolor lorem ip </p>
+    </div>
+    
+    <div class="heart-container">
+      {{ $heart := resources.Get "images/heart.svg" }}
+      <img src="{{ $heart.Permalink }}">
+      <h2 class="chance"></h2>
+    </div>
+  </div>
+  <button class="return">Try with another couple</button>
+</template>
