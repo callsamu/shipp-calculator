@@ -2,19 +2,9 @@
 
 <section>
   {{ .Content }}
+  {{ partial "form.html" . }}
 </section>
 
-<div class="form-div">
-  {{ partial "form.html" . }}
-</div>
-
-<div class="results hidden">
-  <div class="heart-container">
-    {{ $heart := resources.Get "images/heart.svg" }}
-    <img src="{{ $heart.Permalink }}" class="heart">
-    <h2 class="chance"></h2>
-  </div>
-  <button class="return">return</button>
-</div>
+{{ partial "result-template.html" . }}
 
 {{ end }}

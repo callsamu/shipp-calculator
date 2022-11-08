@@ -1,6 +1,6 @@
 import { submit } from "./form";
 import { hydrateResults } from "./results";
-import { alternateVisibility } from "./helpers";
+import { removeAllChildren } from "./helpers";
 
 import { loadFull } from "tsparticles";
 import { tsParticles } from "tsparticles-engine";
@@ -73,21 +73,27 @@ const particles = {
 
 tsParticles.load("tsparticles", particles);
 
-const form = document.forms["names"];
-const container = document.querySelector(".results");
-const returnBtn = container.querySelector(".return");
+const main = document.querySelector("main");
+
+const section = main.querySelector("section");
+const form = section.querySelector("form");
+
+// @ts-ignore
+const template: HTMLTemplateElement = document.querySelector(".results");
 
 form.addEventListener("submit", (e: Event) => {
-  alternateVisibility(form, container);
-  const results = submit(form);
-  hydrateResults(results, container);
+  const data = submit(form);
+  hydrateResults(data, template);
   
-  e.preventDefault();
-  return false;
-})
+  const clone = document.importNode(template.content, true);
+  main.replaceChildren(clone);
 
-returnBtn.addEventListener("click", () => {
-  alternateVisibility(container, form);
+  e.preventDefault();
+
+  const button = main.querySelector(".return");
+  button.addEventListener("click", () => {
+    main.replaceChildren(section);
+  });
 });
  
 
