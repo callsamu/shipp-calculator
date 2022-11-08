@@ -55,7 +55,7 @@ header {
 
 main {
   margin: 0 auto;
-  width: 50%;
+  width: 60%;
   
   background-color: white;
   box-shadow: 2px 2px #CCCCCC;
@@ -63,23 +63,6 @@ main {
   padding: 1rem;
   
   text-align: center;
-}
-
-section {
-  
-}
-
-input {
-  font-size: 1rem;
-}
-
-.inputs {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-
-  margin: 0 auto;
-  width: 20%;
 }
 
 .heart-container > * {
@@ -91,22 +74,46 @@ input {
 }
 
 .chance {
-  color: black;
+  color: white;
   position: relative;
-  bottom: 50%;
+  bottom: 10rem;
   margin: 0;
+}
+
+.plus-sign {
+  margin: auto 0;
+}
+
+
+input {
+  font-size: 1rem;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1rem auto;
+}
+
+.input-container input[type=text] {
+  width: clamp(10rem, 40%, 15rem);
+  flex-grow: 0;
 }
 
 input[type=text] {
   background-color: white;
   color: $foreground;
 
+  font-size: 1.2rem;
   border: 0.5px solid gray;
   box-shadow: 1px 1px 1px gray;
   border-radius: 1rem;
   outline: none;
 
-  padding: 0.5rem;
+  padding: 0.6rem;
   margin: 0.5rem;
 }
 
@@ -130,23 +137,32 @@ footer {
   width: 100%;
   text-align: center;
   bottom: 0;
+  
+  background-color: $foreground;
 }
 
 .hidden {
   display: none;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
   :root {
     font-size: 18px;
   }
   
   main {
-    width: 90%;
+    width: 80%;
   }
   
-  .inputs {
+  .input-container {
     flex-direction: column;
+    align-items: center;
   }
+  
+  .input-container input[type=text] {
+    width: clamp(0px, 90%, 20rem);
+  }
+  
+  
 }
 
