@@ -1,1 +1,3 @@
-<footer><p> Copyright </p></footer>
+{{ with .Site.Params.website }}
+<footer><p> {{ .copyright }}</p></footer>
+{{ end }}
