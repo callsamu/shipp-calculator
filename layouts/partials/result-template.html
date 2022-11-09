@@ -3,13 +3,14 @@
     <div class="result-text">
       <h2> lorem ipsum dolor </h2>
       <p> lorem ipsum dolor lorem ip </p>
+      <button class="return">Try with another couple</button>
     </div>
+    <hr>
     
     <div class="heart-container">
       {{ $heart := resources.Get "images/heart.svg" }}
-      <img src="{{ $heart.Permalink }}">
+      <img src="{{ $heart.RelPermalink }}">
       <h2 class="chance"></h2>
     </div>
   </div>
-  <button class="return">Try with another couple</button>
 </template>

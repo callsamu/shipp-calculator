@@ -2,7 +2,7 @@
   <meta charset="utf-8">
 
   {{ $style := resources.Get "css/style.scss" | resources.ToCSS }} 
-  <link rel="stylesheet" href="{{ $style.Permalink }}">
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
   {{ $title := print .Site.Title " | " .Title }} 
   {{ if .IsHome }}{{ $title = .Site.Title}}{{ end }}
