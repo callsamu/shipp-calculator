@@ -65,14 +65,6 @@ main {
   text-align: center;
 }
 
-.result-container {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  div {
-    width: 100%;
-  }
-}
 
 @keyframes fadein {
   from { 
@@ -83,28 +75,33 @@ main {
   }
 }
 
-.result-text {
-  animation: 4s fadein 4s both;
+.result-container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  .result-text {
+    animation: 4s fadein 4s both;
+  }
 }
 
 .heart-container {
-  margin: 1rem auto 0 auto;
   animation: fadein 2s;
   border-bottom: 1px solid #CCCCCC;
-}
+  
+  * {
+    margin: 0 auto;
+  }
+  
+  img {
+    max-width: 15rem;
+  }
 
-.heart-container > * {
-  margin: 0 auto;
-}
-
-.heart {
-  height: 15rem;
-}
-
-.chance {
-  color: white;
-  position: relative;
-  bottom: 10rem;
+  .chance {
+    color: white;
+    position: relative;
+    bottom: 8.8rem;
+  }
 }
 
 .return {
@@ -160,7 +157,7 @@ button, input[type=submit] {
   font-weight: 500;
   
   margin: 1rem auto;
-  width: 20rem;
+  max-width: 20rem;
 }
 
 footer {
