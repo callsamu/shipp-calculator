@@ -9,7 +9,7 @@ $blue: #11C2E9;
 :root {
   color: $foreground;
   background-color: $background-dark;
-  font-family: "IBM Plex Sans";
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: 20px;
 }
 
@@ -112,11 +112,7 @@ main {
   margin: auto 0;
 }
 
-input {
-  font-size: 1rem;
-}
-
-.input-container {
+.field-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -125,9 +121,20 @@ input {
   margin: 1rem auto;
 }
 
-.input-container input[type=text] {
-  width: clamp(10rem, 40%, 15rem);
-  flex-grow: 0;
+.field-container input[type=text] {
+  width: clamp(10rem, 80%, 15rem);
+}
+
+.field {
+}
+
+
+input {
+  font-size: 1rem;
+}
+
+label {
+  transition: 0.2s ease all;
 }
 
 input[type=text] {
@@ -169,10 +176,6 @@ footer {
   background-color: $background;
 }
 
-.hidden {
-  display: none;
-}
-
 @media screen and (max-width: 800px) {
   :root {
     font-size: 18px;
@@ -187,13 +190,13 @@ footer {
     align-items: center;
   }
 
-  .input-container {
+  .field-container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
   
-  .input-container input[type=text] {
+  .field-container input[type=text] {
     width: clamp(0px, 90%, 20rem);
   }
   
