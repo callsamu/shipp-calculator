@@ -6,6 +6,15 @@ $foreground-light: #A0A0A0;
 $red: #F04444;
 $blue: #11C2E9;
 
+@keyframes fadein {
+  from { 
+    opacity: 0;
+  }
+  to { 
+    opacity: 1;
+  }
+}
+
 :root {
   color: $foreground;
   background-color: $background-dark;
@@ -27,6 +36,7 @@ body, html {
   top: 0;
   left: 0;
   z-index: -1;
+  animation: 4s fadein;
 }
 
 a {
@@ -65,16 +75,6 @@ main {
   text-align: center;
 }
 
-
-@keyframes fadein {
-  from { 
-    opacity: 0;
-  }
-  to { 
-    opacity: 1;
-  }
-}
-
 .result-container {
   display: flex;
   flex-direction: column-reverse;
@@ -94,13 +94,14 @@ main {
   }
   
   img {
-    max-width: 15rem;
+    width: 15rem;
+    height: 15rem;
   }
 
   .chance {
     color: white;
     position: relative;
-    bottom: 8.8rem;
+    bottom: 9.5rem;
   }
 }
 
@@ -125,16 +126,13 @@ main {
   width: clamp(10rem, 80%, 15rem);
 }
 
-.field {
-}
-
-
 input {
   font-size: 1rem;
 }
 
 label {
-  transition: 0.2s ease all;
+  font-weight: 500;
+
 }
 
 input[type=text] {
