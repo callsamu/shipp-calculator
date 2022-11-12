@@ -1,6 +1,6 @@
 <header>
   {{ $logo := resources.Get "images/logo.svg" }}
-  <img src="{{ $logo.Permalink }}">
+  <img width="540" height="60" alt="shipp calculator" src="{{ $logo.Permalink }}">
   <nav>
     {{ range .Site.Menus.main }}
     <a href="{{ .URL }}">{{ print .Name | safeHTML }}</a>
