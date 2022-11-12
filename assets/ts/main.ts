@@ -1,13 +1,10 @@
 import { submit } from "./form";
 import { animate } from "./animations";
+import { hydrateResults } from "./results";
 
 import { particles } from "./particles";
-import { loadFull } from "tsparticles";
 import { tsParticles } from "tsparticles-engine";
-
-
-loadFull(tsParticles);
-tsParticles.load("tsparticles", particles);
+import { loadSlim } from "tsparticles-slim";
 
 const main = document.querySelector("main");
 const section = main.querySelector("section");
@@ -18,6 +15,7 @@ const template: HTMLTemplateElement = document.querySelector(".results");
 
 form.addEventListener("submit", (e: Event) => {
   const data = submit(form);
+  hydrateResults(data, template);
   
   const clone = document.importNode(template.content, true);
   main.replaceChildren(clone);
@@ -32,4 +30,9 @@ form.addEventListener("submit", (e: Event) => {
     main.replaceChildren(section);
   });
 });
+
+loadSlim(tsParticles);
+tsParticles.load("tsparticles", particles)
+
+
 
