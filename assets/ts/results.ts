@@ -10,7 +10,7 @@ export function hydrateResults(results: FormResult, template: HTMLTemplateElemen
   try {
     const texts: Array<ResultText> = params.texts.content;
 
-    const index = results.chance / (100 / texts.length)
+    const index = Math.floor(results.chance / (100 / texts.length));
     console.log(index);
     const text = texts[index];
 
@@ -18,7 +18,10 @@ export function hydrateResults(results: FormResult, template: HTMLTemplateElemen
     headline.innerHTML = text.headline;
 
     const paragraph = template.content.querySelector('.result-text p');
-    paragraph.innerHTML = text.paragraph;
+    console.log(results.firstName)
+    paragraph.innerHTML = text.paragraph
+      .replace(/{% ?first ?%}/g, results.firstName)
+      .replace(/{% ?second ?%}/g, results.secondName);
    } catch(e) {
     console.log(e);
    }
