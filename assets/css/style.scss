@@ -78,10 +78,14 @@ main {
 .result-container {
   display: flex;
   flex-direction: column-reverse;
+  justify-content: center;
   align-items: center;
 
   .result-text {
     animation: 4s fadein 4s both;
+    width: clamp(10rem, 80%, 30rem);
+    
+    p { text-align: left; }
   }
 }
 
@@ -106,7 +110,7 @@ main {
 }
 
 .return {
-  animation: 6s fadein 4s both;
+  animation: 6s fadein 6s both;
 }
 
 .plus-sign {
