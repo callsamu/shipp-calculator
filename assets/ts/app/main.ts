@@ -1,28 +1,12 @@
 import { submit } from "./form";
-import { animate } from "./animations";
-import { hydrateResults } from "./results";
+import { App } from "./app";
 
-const main = document.querySelector("main");
-const section = main.querySelector("section");
-const form = section.querySelector("form");
+const app = new App(document.querySelector("main"));
 
-// @ts-ignore
-const template: HTMLTemplateElement = document.querySelector(".results");
-
-form.addEventListener("submit", (e: Event) => {
-  const data = submit(form);
-  hydrateResults(data, template);
-  
-  const clone = document.importNode(template.content, true);
-  main.replaceChildren(clone);
-  
-  const chance = main.querySelector(".chance");
-  animate(chance, 0, data.chance, 4000);
-    
+app.form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
 
-  const button = main.querySelector(".return");
-  button.addEventListener("click", () => {
-    main.replaceChildren(section);
-  });
+  app.renderTemplate(submit(app.form));
+  const button = app.main.querySelector("button");
+  button.addEventListener("click", () => app.reRenderContent());
 });
