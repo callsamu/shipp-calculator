@@ -2,10 +2,6 @@ import { submit } from "./form";
 import { animate } from "./animations";
 import { hydrateResults } from "./results";
 
-import { particles } from "./particles";
-import { tsParticles } from "tsparticles-engine";
-import { loadSlim } from "tsparticles-slim";
-
 const main = document.querySelector("main");
 const section = main.querySelector("section");
 const form = section.querySelector("form");
@@ -30,9 +26,3 @@ form.addEventListener("submit", (e: Event) => {
     main.replaceChildren(section);
   });
 });
-
-loadSlim(tsParticles);
-tsParticles.load("tsparticles", particles)
-
-
-

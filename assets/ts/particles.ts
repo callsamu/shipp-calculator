@@ -1,3 +1,6 @@
+import { tsParticles } from "tsparticles-engine";
+import { loadSlim } from "tsparticles-slim";
+
 export const particles = {
   "fpsLimit": 120,
   "particles": {
@@ -63,3 +66,5 @@ export const particles = {
   }
 };
 
+loadSlim(tsParticles);
+tsParticles.load("tsparticles", particles)

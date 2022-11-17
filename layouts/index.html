@@ -7,4 +7,10 @@
 
 {{ partial "result-template.html" . }}
 
+{{ $app := resources.Get "ts/app/main.ts" }}
+{{ $app = $app | js.Build (dict
+  "minify" hugo.IsProduction
+  "params" (dict "texts" .Site.Data.texts)
+)}}
+<script src="{{ $app.RelPermalink }}"></script>
 {{ end }}
