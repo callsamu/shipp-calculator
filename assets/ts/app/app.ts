@@ -18,6 +18,9 @@ export class App {
   }
 
   public renderTemplate(data: FormResult) {
+    const url = `/?first=${data.firstName}&second=${data.secondName}`;
+    history.pushState(null, "", url);
+
     hydrateResults(data, this.template);
     const clone = document.importNode(this.template.content, true);
     this.main.replaceChildren(clone);
@@ -27,6 +30,7 @@ export class App {
   }
 
   public reRenderContent() {
+    history.pushState(null, "", "/");
     this.main.replaceChildren(this.content);
   }
 }
