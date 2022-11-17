@@ -12,12 +12,10 @@ app.form.addEventListener("submit", (e: Event) => {
 });
 
 if (location.search) {
-  const parameters  = location.search.substring(1).split("&");
-  const splitted = parameters.map((parameter: string) => parameter.split("="));
+  const params = new URLSearchParams(location.search);
 
-  for (let [name, value] of splitted) {
-    app.form.elements[name].value = value;
-  }
+  app.form.elements["first"].value = params.get("first");
+  app.form.elements["second"].value = params.get("second");
 
   const event = new SubmitEvent("submit");
   app.form.dispatchEvent(event);
