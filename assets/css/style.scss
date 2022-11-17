@@ -84,8 +84,6 @@ main {
   .result-text {
     animation: 4s fadein 4s both;
     width: clamp(10rem, 80%, 30rem);
-    
-    p { text-align: left; }
   }
 }
 
