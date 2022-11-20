@@ -2,6 +2,11 @@
     | js.Build (dict "minify" hugo.IsProduction)
 }}
 <script defer src="{{ $particles.RelPermalink }}"></script>
+
+{{ with .Site.Param "adsenseLink" }}
+<script async src="{{ . }}" crossorigin=anonymous></script>
+{{ end }}
+
 {{ $sw := resources.Get "service-worker.js" | js.Build }}
 <script>
     if ("serviceWorker" in navigator) {
