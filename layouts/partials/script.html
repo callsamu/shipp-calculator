@@ -1,5 +1,12 @@
 {{ $particles := resources.Get "ts/particles.ts"
     | js.Build (dict "minify" hugo.IsProduction)
 }}
-
 <script defer src="{{ $particles.RelPermalink }}"></script>
+{{ $sw := resources.Get "service-worker.js" | js.Build }}
+<script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+            navigator.serviceWorker.register("{{ $sw.RelPermalink }}");
+        });
+    }
+</script>
