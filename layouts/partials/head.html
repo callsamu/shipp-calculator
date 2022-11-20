@@ -11,13 +11,17 @@
   {{ $icon := resources.Get "/icons/apple-icon-180.png" }}
   <link rel="apple-touch-icon" href="{{ $icon.RelPermalink }}">
 
+
+  {{ $favicon := resources.Get "/images/favicon.ico" }}
+  <link rel="icon" type="image/x-icon" href="{{ $favicon.RelPermalink }}">
+
   {{ $title := print .Site.Title " | " .Title }} 
   {{ if .IsHome }}{{ $title = .Site.Title}}{{ end }}
+  <title>{{ $title }}</title>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#FFFFFF">
-    
-  <title>{{ $title }}</title>
+  <meta name="description" content="{{ .Description }}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
