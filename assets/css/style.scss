@@ -75,6 +75,12 @@ main {
   text-align: center;
 }
 
+main section p {
+  margin: 0 auto;
+  max-width: 35rem;
+  text-align: left;
+}
+
 .result-container {
   display: flex;
   flex-direction: column-reverse;
@@ -107,7 +113,8 @@ main {
   }
 }
 
-.return {
+.return, .share {
+  margin: 1rem;
   animation: 6s fadein 6s both;
 }
 
@@ -134,7 +141,6 @@ input {
 
 label {
   font-weight: 500;
-
 }
 
 input[type=text] {
@@ -202,7 +208,7 @@ footer {
   
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
   :root { font-size: 16px; }
   header { margin-bottom: 3rem; }
 }

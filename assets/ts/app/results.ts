@@ -11,14 +11,12 @@ export function hydrateResults(results: FormResult, template: HTMLTemplateElemen
     const texts: Array<ResultText> = params.texts.content;
 
     const index = Math.floor(results.chance / (100 / texts.length));
-    console.log(index);
     const text = texts[index];
 
     const headline = template.content.querySelector('.result-text h2');
     headline.innerHTML = text.headline;
 
     const paragraph = template.content.querySelector('.result-text p');
-    console.log(results.firstName)
     paragraph.innerHTML = text.paragraph
       .replace(/{% ?first ?%}/g, results.firstName)
       .replace(/{% ?second ?%}/g, results.secondName);

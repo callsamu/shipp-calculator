@@ -1,6 +1,7 @@
 import { FormResult } from "./form";
 import { animate } from "./animations";
 import { hydrateResults } from "./results";
+import { onShareButtonClick } from "./share";
 
 export class App {
   public main: HTMLElement
@@ -27,6 +28,9 @@ export class App {
 
     const counter = this.main.querySelector(".chance");
     animate(counter, 0, data.chance, 4000);
+
+    this.main.querySelector(".share")
+      .addEventListener("click", onShareButtonClick)
   }
 
   public reRenderContent() {
