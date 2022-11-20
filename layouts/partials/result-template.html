@@ -14,7 +14,8 @@
   </div>
 
   <button class="return">Try Again</button>
-  <button class="share">Share</button>
+  {{ $share := resources.Get "images/share.svg" }}
+  <button class="share"><img src="{{ $share.RelPermalink }}"></button>
   </div>
 
 </template>

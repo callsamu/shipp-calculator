@@ -118,8 +118,12 @@ main section p {
   animation: 6s fadein 6s both;
 }
 
+.share img {
+  height: 1.2rem;
+}
+
 .plus-sign {
-  margin: auto 0;
+  margin: 0.5rem auto;
 }
 
 .field-container {
@@ -209,7 +213,7 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
-  :root { font-size: 16px; }
-  header { margin-bottom: 3rem; }
+  :root { font-size: 15px; }
+  header { margin-bottom: 1rem; }
 }
 
