@@ -52,7 +52,7 @@ header {
   
   max-width: 100vw;
   padding: 0.5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   
   img {
     width: 17.5rem;
@@ -204,10 +204,10 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-  
-  .field-container input[type=text] {
-    width: clamp(0px, 90%, 20rem);
+
+    input[type=text] {
+      width: clamp(0px, 90%, 20rem);
+    }
   }
   
 }
