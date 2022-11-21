@@ -114,12 +114,16 @@ main section p {
 }
 
 .return, .share {
-  margin: 1rem;
+  margin: 0.5rem;
   animation: 6s fadein 6s both;
 }
 
-.share img {
-  height: 1.2rem;
+.share {
+  img {
+    margin-left: 0.1rem;
+    vertical-align: sub;
+    height: 1.2rem;
+  }
 }
 
 .plus-sign {
