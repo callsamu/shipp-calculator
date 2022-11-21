@@ -32,7 +32,7 @@ export class App {
     const share = this.main.querySelector(".share")
     if (share)
       if (navigator.canShare)
-        share.addEventListener("click", onShareButtonClick)
+        share.addEventListener("click", onShareButtonClick(data));
       else {
         share.remove();
       }
