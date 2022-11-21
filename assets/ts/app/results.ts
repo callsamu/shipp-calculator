@@ -1,5 +1,6 @@
 import * as params from "@params";
-import type { FormResult } from "./form"
+import { renderTemplate } from "./template";
+import type { FormResult } from "./form";
 
 interface ResultText {
   headline: string
@@ -7,7 +8,7 @@ interface ResultText {
 }
 
 function getText(chance: number): ResultText | null {
-    const texts: Array<ResultText> = params.texts.content;
+    const texts: Array<ResultText> = params.texts.result;
 
     const index = Math.floor(chance / (100 / texts.length));
     return texts[index] ?? null;
@@ -23,7 +24,8 @@ export function hydrateResults(results: FormResult, template: HTMLTemplateElemen
     if (headline) headline.textContent = text.headline; // make it optional
 
     const paragraph = template.content.querySelector('.result-text p');
-    if (paragraph) paragraph.textContent = text.paragraph
-      .replace(/{% ?first ?%}/g, results.firstName)
-      .replace(/{% ?second ?%}/g, results.secondName);
+    if (paragraph) paragraph.textContent = renderTemplate(text.paragraph, {
+      "first": results.firstName,
+      "second": results.secondName
+    });
 }
