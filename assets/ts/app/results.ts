@@ -6,21 +6,24 @@ interface ResultText {
   paragraph: string  
 }
 
-export function hydrateResults(results: FormResult, template: HTMLTemplateElement) {
-  try {
+function getText(chance: number): ResultText | null {
     const texts: Array<ResultText> = params.texts.content;
 
-    const index = Math.floor(results.chance / (100 / texts.length));
-    const text = texts[index];
+    const index = Math.floor(chance / (100 / texts.length));
+    return texts[index] ?? null;
+}
+
+export function hydrateResults(results: FormResult, template: HTMLTemplateElement) {
+    const text = getText(results.chance);
+
+    const names = template.content.querySelector('.names');
+    if (names) names.textContent = `${results.firstName} & ${results.secondName}`;
 
     const headline = template.content.querySelector('.result-text h2');
-    headline.innerHTML = text.headline;
+    if (headline) headline.textContent = text.headline; // make it optional
 
     const paragraph = template.content.querySelector('.result-text p');
-    paragraph.innerHTML = text.paragraph
+    if (paragraph) paragraph.textContent = text.paragraph
       .replace(/{% ?first ?%}/g, results.firstName)
       .replace(/{% ?second ?%}/g, results.secondName);
-   } catch(e) {
-    console.log(e);
-   }
 }
