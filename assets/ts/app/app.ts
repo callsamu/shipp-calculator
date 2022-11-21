@@ -27,10 +27,15 @@ export class App {
     this.main.replaceChildren(clone);
 
     const counter = this.main.querySelector(".chance");
-    animate(counter, 0, data.chance, 4000);
+    if (counter) animate(counter, 0, data.chance, 4000);
 
-    this.main.querySelector(".share")
-      .addEventListener("click", onShareButtonClick)
+    const share = this.main.querySelector(".share")
+    if (share)
+      if (navigator.canShare)
+        share.addEventListener("click", onShareButtonClick)
+      else {
+        share.remove();
+      }
   }
 
   public reRenderContent() {
