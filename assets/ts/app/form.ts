@@ -6,11 +6,15 @@ export interface FormResult {
   chance: number
 }
 
+function getName(fd: FormData, name: string): string {
+  return fd.get(name).toString().trim().toLocaleLowerCase();
+}
+
 export function submit(form: HTMLFormElement): FormResult { 
   const fd = new FormData(form);
 
-  const name1 = fd.get("first").toString();
-  const name2 = fd.get("second").toString();
+  const name1 = getName(fd, "first");
+  const name2 = getName(fd, "second");
   
   const chance = calculator.computeChance(name1, name2);
   
